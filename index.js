@@ -78,13 +78,11 @@ function minAjax(config) {
 
 
 
-    var sendString = [];
-    var i = 0;
-
-    for (var keys in config.data) {
-        sendString.push(keys + "=" + config.data[keys]);
+    var k, sendString = [];
+    for (k in config.data) {
+        sendString.push(k + "=" + config.data[k]);
     }
-    sendString = dataArr.join('&');
+    sendString = sendString.join('&');
 
     if (config.type == "GET") {
         xmlhttp.open("GET", config.url + "?" + sendString, config.method);
