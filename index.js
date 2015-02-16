@@ -75,12 +75,25 @@ function minAjax(config) {
         }
     }
 
-
-
-
-    var k, sendString = [];
-    for (k in config.data) {
-        sendString.push(k + "=" + config.data[k]);
+    var sendString = [],
+        sendData = config.data;
+    if( typeof sendData === "string" ){
+        var tmpArr = String.prototype.split.call(sendData,'&');
+        for(var i = 0, j = tmpArr.length; i < j; i++){
+            var datum = tmpArr[i].split('=');
+            sendString.push(encodeURIComponent(datum[0]) + "=" + encodeURIComponent(datum[1]));
+        }
+    }else if( typeof sendData === 'object' && !( sendData instanceof String || (FormData && sendData instanceof FormData) ) ){
+        for (var k in sendData) {
+            var datum = sendData[k];
+            if( Object.prototype.toString.call(datum) == "[object Array]" ){
+                for(var i = 0, j = datum.length; i < j; i++) {
+                        sendString.push(encodeURIComponent(k) + "[]=" + encodeURIComponent(datum[i]));
+                }
+            }else{
+                sendString.push(encodeURIComponent(k) + "=" + encodeURIComponent(datum));
+            }
+        }
     }
     sendString = sendString.join('&');
 
