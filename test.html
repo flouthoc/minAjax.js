@@ -1,13 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head>
-<script type="text/javascript" src="index.js"></script>
- <script type="text/javascript">
- 	minAjax({
- 		url:"test.php",
- 		type:"GET",
- 		debugLog: true
- 	});
- </script>
+	<meta charset="UTF-8">
+	<title>Tests</title>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript">
+	 	minAjax({
+	 		url:"test.php",
+	 		type:"GET",
+	 		//data: "foo=1&bar[]=2&bar[]=3+",
+	 		data:{
+	 			foo1:"bar1",
+	 			foo2:["bar2","bar 3","bar+4"]
+	 		},
+	 		debugLog: true
+	 	});
+	</script>
 </head>
 <body>
 </body>
+</html>
