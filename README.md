@@ -55,7 +55,9 @@ This is example to use minAjax() , these are the frequent arguments which are us
           param1:value1,
           param2:value2,
           param3:value3,
-          param4:value4
+          param4:value4,
+          //also send Arrays
+          foo2:["bar2","bar 3","bar+4"]
           //and blah blah as many param as things support.
           }
 ```
