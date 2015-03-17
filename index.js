@@ -3,18 +3,48 @@
   |--Author : argunner (gunnerar7@gmail.com)(http://github.com/argunner)--|
   |--Contributers : Add Your Name Below--|
   */
-function initXMLhttp() {
 
-    var xmlhttp;
-    if (window.XMLHttpRequest) {
-        //code for IE7,firefox chrome and above
-        xmlhttp = new XMLHttpRequest();
+// all possible variants
+var XMLHTTPtypes = [
+    function() { return new XMLHttpRequest(); },
+    function() { return new ActiveXObject("Msxml3.XMLHTTP"); },
+    function() { return new ActiveXObject("Msxml2.XMLHTTP.6.0"); },
+    function() { return new ActiveXObject("Msxml2.XMLHTTP.3.0"); },
+    function() { return new ActiveXObject("Msxml2.XMLHTTP"); },
+    function() { return new ActiveXObject("Microsoft.XMLHTTP"); }
+];
+
+// return the appropriate object
+function XMLhttp() {
+    if(this instanceof XMLhttp) {
+        XMLHTTPtypes.forEach(function(t) {
+            try { xmlhttp = t(); } 
+            catch(e) {}
+        });
+        return xmlhttp;
     } else {
-        //code for Internet Explorer
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        return new XMLhttp();
     }
+}
 
-    return xmlhttp;
+var req = {
+    get: function get(obj, data) {
+        obj.open("GET", this.url + "?" + data, this.async);
+        obj.send();
+    },
+    post: function post(obj, data) {
+        obj.open("POST", this.url, this.async);
+        obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        obj.send(data);
+    },
+    head: function head(obj, data) {
+        obj.open("HEAD", this.url + "?" + data, this.async);
+        obj.send();
+    },
+    // append more http request methods at will and include them in the condition below (102)!
+    log: function log(obj, data) {
+        console.log(this.type.toUpperCase() + " fired at: " + this.url + " || Data:" + data);
+    }
 }
 
 function minAjax(config) {
@@ -28,32 +58,28 @@ function minAjax(config) {
             success: "(OPTIONAL) Callback function to process after response | function(data,status)"
     */
 
-    if (!config.url) {
-
-        if (config.debugLog == true)
-            console.log("No Url!");
+    if(config.url === "") {
+        if (config.debugLog === true) { console.log("No Url!"); }
         return;
-
+    }
+    if(config.type === "") {
+        if (config.debugLog === true) { console.log("No request type given"); }
+        return;
     }
 
-    if (!config.type) {
-
-        if (config.debugLog == true)
-            console.log("No Default type (GET/POST) given!");
-        return;
-
-    }
-
-    if (!config.method) {
+    if(config.method === true) {
         config.method = true;
+    } else if ( config.method === undefined ) {
+        // nothing is given - defaulting to true
+        config.method = true;
+        // everything else should be treated as false
+    } else {
+        config.method = false;
     }
 
+    config.debugLog === true ? true : false;
 
-    if (!config.debugLog) {
-        config.debugLog = false;
-    }
-
-    var xmlhttp = initXMLhttp();
+    var xmlhttp = XMLhttp();
 
     xmlhttp.onreadystatechange = function() {
 
@@ -97,23 +123,10 @@ function minAjax(config) {
     }
     sendString = sendString.join('&');
 
-    if (config.type == "GET") {
-        xmlhttp.open("GET", config.url + "?" + sendString, config.method);
-        xmlhttp.send();
-
-        if (config.debugLog == true)
-            console.log("GET fired at:" + config.url + "?" + sendString);
+    if((config.type === "GET") || (config.type === "POST") || (config.type === "HEAD")) {
+        req[config.type.toLowerCase()].call(config, xmlhttp, sendString);
+        if(config.debugLog) { req.log.call(config, xmlhttp, sendString); }
+    } else {
+        console.log('Request type not supported');
     }
-    if (config.type == "POST") {
-        xmlhttp.open("POST", config.url, config.method);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send(sendString);
-
-        if (config.debugLog == true)
-            console.log("POST fired at:" + config.url + " || Data:" + sendString);
-    }
-
-
-
-
 }
