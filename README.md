@@ -4,12 +4,12 @@ A minimalist Javascript library to perform AJAX POST and GET Request.
 
 
 #Check Pretty Documentation
-http://argunner.github.io/minAjax.js/
+http://flouthoc.github.io/minAjax.js/
 
 #Usage
 Getting Started
 ```html
-<script type="text/javascript" src="https://raw.githubusercontent.com/argunner/minAjax.js/master/index.js"></script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/flouthoc/minAjax.js/master/index.js"></script>
 ```
 
 
