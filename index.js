@@ -1,6 +1,6 @@
 /*|--minAjax.js--|
   |--(A Minimalistic Pure JavaScript Header for Ajax POST/GET Request )--|
-  |--Author : argunner (gunnerar7@gmail.com)(http://github.com/argunner)--|
+  |--Author : flouthoc (gunnerar7@gmail.com)(http://github.com/flouthoc)--|
   |--Contributers : Add Your Name Below--|
   */
 function initXMLhttp() {
