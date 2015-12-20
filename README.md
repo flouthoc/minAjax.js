@@ -108,7 +108,7 @@ minAjax({
   
 ```
 #Fork it , Create Pull 
-
+@flouthoc (http://twitter.com/flouthoc)
 
 
 
