@@ -9,7 +9,7 @@ http://flouthoc.github.io/minAjax.js/
 #Usage
 Getting Started
 ```html
-<script type="text/javascript" src="https://raw.githubusercontent.com/flouthoc/minAjax.js/master/index.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/flouthoc/minAjax.js/master/minify/index.min.js"></script>
 ```
 
 
