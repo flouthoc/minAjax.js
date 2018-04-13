@@ -72,6 +72,11 @@ function minAjax(config) {
 
             if (config.debugLog == true)
                 console.log("FailureResponse --> State:" + xmlhttp.readyState + "Status:" + xmlhttp.status);
+          
+            if(config.errorCallback){
+                console.log("Calling Error Callback");
+                config.errorCallback();
+            }
         }
     }
 
