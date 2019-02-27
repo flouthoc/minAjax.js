@@ -1,0 +1,26 @@
+{
+  "name": "minajax.js",
+  "version": "1.0.0",
+  "description": "A minimalist Javascript library to perform AJAX Request",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flouthoc/minAjax.js.git"
+  },
+  "keywords": [
+    "ajax",
+    "post",
+    "get",
+    "http",
+    "api"
+  ],
+  "author": "flouthoc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flouthoc/minAjax.js/issues"
+  },
+  "homepage": "https://github.com/flouthoc/minAjax.js#readme"
+}

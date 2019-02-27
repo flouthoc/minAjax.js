@@ -8,6 +8,11 @@ http://flouthoc.github.io/minAjax.js/
 
 #Usage
 Getting Started
+
+```bash
+npm i minajax.js
+```
+
 ```html
 <script type="text/javascript" src="https://cdn.rawgit.com/flouthoc/minAjax.js/master/minify/index.min.js"></script>
 ```
