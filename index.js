@@ -28,31 +28,12 @@ function minAjax(config) {
             success: "(OPTIONAL) Callback function to process after response | function(data,status)"
     */
 
-    if (!config.url) {
-
-        if (config.debugLog == true)
-            console.log("No Url!");
-        return;
-
-    }
-
-    if (!config.type) {
-
-        if (config.debugLog == true)
-            console.log("No Default type (GET/POST) given!");
-        return;
-
-    }
+    if (!config.url || !config.type) {return;}
 
     if (!config.method) {
         config.method = true;
     }
-
-
-    if (!config.debugLog) {
-        config.debugLog = false;
-    }
-
+    
     var xmlhttp = initXMLhttp();
 
     xmlhttp.onreadystatechange = function() {
@@ -61,18 +42,9 @@ function minAjax(config) {
 
             if (config.success) {
                 config.success(xmlhttp.responseText, xmlhttp.readyState);
-            }
+            }            
 
-            if (config.debugLog == true)
-                console.log("SuccessResponse");
-            if (config.debugLog == true)
-                console.log("Response Data:" + xmlhttp.responseText);
-
-        } else {
-
-            if (config.debugLog == true)
-                console.log("FailureResponse --> State:" + xmlhttp.readyState + "Status:" + xmlhttp.status);
-          
+        } else {          
             if(config.errorCallback){
                 console.log("Calling Error Callback");
                 config.errorCallback();
@@ -117,8 +89,4 @@ function minAjax(config) {
         if (config.debugLog == true)
             console.log("POST fired at:" + config.url + " || Data:" + sendString);
     }
-
-
-
-
 }
