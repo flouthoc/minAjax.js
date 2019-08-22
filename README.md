@@ -1,7 +1,6 @@
 # minAjax.js
 A minimalist Javascript library for AJAX requests.
 
-# Usage
 ```bash
 npm i minajax.js
 ```
@@ -24,4 +23,5 @@ minAjax({
   });
 ```
 http://flouthoc.github.io/minAjax.js/
+
 @flouthoc (http://twitter.com/flouthoc)
