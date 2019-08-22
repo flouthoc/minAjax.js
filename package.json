@@ -1,33 +1,36 @@
 {
-  "name": "minajax.js",
+  "name": "minjax.js",
   "version": "1.0.0",
   "description": "A minimalist Javascript library to perform AJAX Request",
+  "keywords": [
+    "ajax",
+    "api",
+    "get",
+    "http",
+    "javascript",
+    "library",
+    "post",
+    "request"
+  ],
   "homepage": "https://github.com/flouthoc/minAjax.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "uglify-js": "~2.4.0",
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flouthoc/minAjax.js.git"
   },
-  "keywords": [
-    "ajax",
-    "javascript",
-    "library",
-    "request",
-    "post",
-    "get",
-    "http",
-    "api"
-  ],
   "author": "flouthoc",
-  "contributors": {
+  "contributors": [
     "argunner",
     "KingChung",
     "mc-zone",
     "fgrehm",
     "ForgivenNin",
-  },
-  "license": "MIT",
+  ],
+  "license": "MIT"
 }
