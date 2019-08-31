@@ -19,7 +19,9 @@ minAjax({
     data: {"Nested object which should contain requested properties in form of object properties"},
     success: "Callback function to process after response | function(data,status)",
     ready: "Stage of request | Default: 4",
-    status: "Ajax condition | Default: 200"
+    status: "Ajax condition | Default: 200",
+    display: "Element ID | Default: null",
+    json: "JSON format? | Default: false"
   });
 ```
 http://flouthoc.github.io/minAjax.js/
