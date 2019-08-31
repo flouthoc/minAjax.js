@@ -3,7 +3,9 @@
   |-- Author: flouthoc (gunnerar7@gmail.com)(http://github.com/flouthoc) --|
   |-- Contributers: argunner, KingChung, mc-zone, fgrehm, ForgivenNin --|
   |-- MIT License --|
+  |-- https://github.com/flouthoc/minAjax.js --|
 */
+
 function initXMLhttp() {
     var xmlhttp;
     if (window.XMLHttpRequest) {
@@ -45,6 +47,14 @@ function minAjax(config) {
 
     if (!config.status) {
         config.status = 200;
+    }
+  
+    if (!config.display) {
+        config.display = null; 
+    }
+  
+    if (!config.json) {
+      config.json = false; 
     }
 
     var xmlhttp = initXMLhttp();
@@ -110,4 +120,11 @@ function minAjax(config) {
             console.log("POST fired at:" + config.url + " || Data:" + sendString);
         }
     }
+  
+  if (config.json === false) {
+    document.getElementById(config.display) || document.getElementsByClassName(config.display) = xmlhttp.responseText;
+  } else {
+    const j = JSON.parse(xmlhttp.responseText);
+    document.getElementById(config.display) || document.getElementsByClassName(config.display) = j;
+  }
 }
