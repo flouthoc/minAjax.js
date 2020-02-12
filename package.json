@@ -5,12 +5,9 @@
   "keywords": [
     "ajax",
     "api",
-    "get",
     "http",
     "javascript",
-    "library",
-    "post",
-    "request"
+    "library"
   ],
   "homepage": "https://github.com/flouthoc/minAjax.js",
   "main": "index.js",
